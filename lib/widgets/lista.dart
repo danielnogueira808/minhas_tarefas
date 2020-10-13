@@ -15,17 +15,19 @@ class Lista extends StatelessWidget {
           itemBuilder: (context, index) {
             final texto = _tarefas[index]["texto"];
             final realizada = _tarefas[index]["realizada"];
-            return ListTile(
-              title: Text(
-                texto,
-                style: TextStyle(
-                    decoration: realizada
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none),
+            return Card(
+              child: ListTile(
+                title: Text(
+                  texto,
+                  style: TextStyle(
+                      decoration: realizada
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none),
+                ),
+                selected: !realizada,
+                onLongPress: () => _removerTarefa(index),
+                onTap: () => _alterarEstadoTarefa(index),
               ),
-              selected: !realizada,
-              onLongPress: () => _removerTarefa(index),
-              onTap: () => _alterarEstadoTarefa(index),
             );
           }),
     );

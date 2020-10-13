@@ -27,8 +27,10 @@ class Formulario extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             onPressed: () {
-              if (_formKey.currentState.validate())
+              if (_formKey.currentState.validate()) {
                 _adicionarTarefa(_inputController.text);
+                _inputController.clear();
+              }
             },
           )
         ],
